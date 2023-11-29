@@ -15,5 +15,6 @@ module.exports = {
       },
     }
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [require('postcss-nesting'),require("flowbite/plugin"), require('tailwindcss'),
+  require('autoprefixer'),],
 }

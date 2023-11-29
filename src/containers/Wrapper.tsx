@@ -8,7 +8,7 @@ export interface IWrapperProps {
 
 const Wrapper = ({ children }: IWrapperProps): JSX.Element => {
     return (
-        <div className="wrapper flex h-screen">
+        <div className="flex h-screen">
           <div className="flex-none">
             <Sidebar />
           </div>
