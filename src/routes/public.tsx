@@ -17,7 +17,7 @@ export const PublicRoutes: IRoute[] = [
   },
   {
     path: "/Catalogue",
-    Component: () => <Catalogue />,
+    Component: () => <Homepage />,
   },
   {
     path: "/Instructions",

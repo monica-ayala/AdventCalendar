@@ -22,7 +22,7 @@ export default function Sidebar() {
     <nav className="h-screen w-fit flex flex-col bg-white border-r shadow-sm">
       <div className="p-4 pb-2 flex justify-between items-center">
           <img
-            src="./src/assets/imgs/advent-logo.png"
+            src="AdventCalendar/src/assets/imgs/advent-logo.png"
             className={`overflow-hidden transition-all ${
               expanded ? "w-44" : "w-0"
             }`}

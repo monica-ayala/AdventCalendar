@@ -18,7 +18,7 @@ const Card = ({ day, color }: ICardProps) => {
     <div className="group h-80 w-58 [perspective:1000px] mb-4">
       <div className="relative h-full w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
         <div
-          className={`absolute inset-0 h-full w-full rounded-xl bg-[url('./assets/imgs/${color}-card.png')] bg-no-repeat bg-cover px-12 text-center`}
+          className={color === 'red' ? `absolute inset-0 h-full w-full rounded-xl bg-[url('AdventCalendar/src/assets/imgs/red-card.png')] bg-no-repeat bg-cover px-12 text-center` : `absolute inset-0 h-full w-full rounded-xl bg-[url('AdventCalendar/src/assets/imgs/white-card.png')] bg-no-repeat bg-cover px-12 text-center`}
         >
           <div className="flex min-h-full flex-col items-center justify-center">
             <h1
