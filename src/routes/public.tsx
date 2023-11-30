@@ -16,7 +16,7 @@ export const PublicRoutes: IRoute[] = [
     Component: () => <Homepage />,
   },
   {
-    path: "/Catalogue",
+    path: "/Calendario",
     Component: () => <Homepage />,
   },
   {

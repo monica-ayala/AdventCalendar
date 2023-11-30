@@ -5,6 +5,7 @@ import { BsFillTreeFill } from "react-icons/bs";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { ImGithub } from "react-icons/im";
 import { Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 const SidebarContext = createContext({ expanded: false } as {
   expanded: boolean;
@@ -12,7 +13,6 @@ const SidebarContext = createContext({ expanded: false } as {
 export interface ISideBarItemProps {
   icon: ReactNode;
   text: string;
-  active?: boolean;
   alert?: boolean;
   isGithub?: boolean;
   expandSideBar?: () => void;
@@ -45,7 +45,6 @@ export default function Sidebar() {
             <SidebarItem
               icon={<BsFillTreeFill />}
               text="Calendario"
-              active={true}
               expandSideBar={() => setExpanded((curr) => !curr)}
             />
             <SidebarItem
@@ -88,7 +87,6 @@ export default function Sidebar() {
 export function SidebarItem({
   icon,
   text,
-  active,
   alert,
   isGithub,
 }: ISideBarItemProps) {
@@ -97,6 +95,9 @@ export function SidebarItem({
   const handleNavigation = () => {
     window.location.href = "https://github.com/monica-ayala/AdventCalendar";
   };
+
+  const location = useLocation();
+  const isActive = location.pathname === `/${text}`;
 
   return (
     <>
@@ -108,7 +109,7 @@ export function SidebarItem({
         font-medium rounded-md cursor-pointer
         transition-colors group
         ${
-          active
+          isActive
             ? "bg-gradient-to-tr from-red-200 to-red-100 text-red-800"
             : "hover:bg-red-50"
         }
@@ -142,7 +143,7 @@ export function SidebarItem({
         font-medium rounded-md cursor-pointer
         transition-colors group
         ${
-          active
+          isActive
             ? "bg-gradient-to-tr from-red-200 to-red-100 text-red-800"
             : "hover:bg-red-50"
         }

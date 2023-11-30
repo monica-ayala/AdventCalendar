@@ -16,7 +16,7 @@ export function AppRouter() {
   const availableRoutes = useMemo((): IRoute[] => {
     const routes: IRoute[] = [];
     routes.push(...PublicRoutes);
-    routes.push({ path: "*", Component: () => <Navigate to="/Catalogue" /> });
+    routes.push({ path: "*", Component: () => <Navigate to="/Calendario" /> });
 
     // if (isAuthenticated) {
     //   routes.push(...CommonUserRoutes);
