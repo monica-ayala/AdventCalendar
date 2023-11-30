@@ -55,7 +55,7 @@ export default function WordleGame({}: Props) {
 
   return (
     <Wrapper>
-      <div className='flex grid-flow-col'>
+      <div className='flex lg:flex-row flex-col'>
       { day && <Letter day={day} />}
       <Wordle targetWord={word} oldAttempts={attempts?attempts:[]} isWon={true}/>
       </div>

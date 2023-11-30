@@ -97,7 +97,7 @@ const Wordle: React.FC<WordleProps> = ({ targetWord, oldAttempts, isWon, day}: W
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen p-10">
+    <div className="flex flex-col items-center justify-center p-10">
     { oldAttempts.length > 0 ? (<div>
       {oldAttempts.map((attempt, index) => (
         <>

@@ -11,7 +11,7 @@ const Row: React.FC<RowProps> = ({ letters, statuses }: RowProps) => {
   return (
     <div className="row" style={{ display: 'flex' }}>
       {letters.map((letter, index) => (
-        <Cell key={index} letter={letter} status={statuses[index]} />
+        <Cell key={index} letter={letter} status={statuses[index]}/>
       ))}
     </div>
   );
