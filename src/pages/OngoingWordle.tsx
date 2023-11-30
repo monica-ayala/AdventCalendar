@@ -15,7 +15,7 @@ export default function OngoingWordle({}: Props) {
   const supabase: any = React.useContext(SupabaseContext);
   const [word, setWord] = useState<string>('')
   const [day, setDay] = useState<IDay | null>(null);
-  const [attempts, setAttempts] = useState<IAttempt[]>();
+  const [attempts, setAttempts] = useState<IAttempt[] | any[]>();
 
   useEffect(() => {
     const fetchWord = async () => {
@@ -38,6 +38,7 @@ export default function OngoingWordle({}: Props) {
          }
         setWord(word.password)
         setDay(fetchedDay)
+        setAttempts([])
     } 
   }
   fetchWord()
