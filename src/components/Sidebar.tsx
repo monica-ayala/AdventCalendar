@@ -99,8 +99,11 @@ export function SidebarItem({
   };
 
   return (
-    <li
-      className={`
+    <>
+      {isGithub ? (
+        <li
+          onClick={handleNavigation}
+          className={`
         relative flex items-center py-2 px-3 my-1
         font-medium rounded-md cursor-pointer
         transition-colors group
@@ -110,35 +113,59 @@ export function SidebarItem({
             : "hover:bg-red-50"
         }
     `}
-    >
-      {icon}
-
-      {isGithub ? (
-        <div
-          className={`overflow-hidden transition-all ${
-            expanded ? "w-52 ml-3" : "w-0"
-          }`}
-          onClick={handleNavigation}
         >
-          {text}
-        </div>
+          {icon}
+
+          <div
+            className={`overflow-hidden transition-all ${
+              expanded ? "w-52 ml-3" : "w-0"
+            }`}
+            onClick={handleNavigation}
+          >
+            {text}
+          </div>
+
+          {alert && (
+            <div
+              className={`absolute right-2 w-2 h-2 rounded bg-red-400 ${
+                expanded ? "" : "top-2"
+              }`}
+            />
+          )}
+        </li>
       ) : (
         <Link
-          to={`/${text}`}
-          className={`overflow-hidden transition-all ${
-            expanded ? "w-52 ml-3" : "w-0"
-          }`}
+            to={`/${text}`}>
+        <li
+          className={`
+        relative flex items-center py-2 px-3 my-1
+        font-medium rounded-md cursor-pointer
+        transition-colors group
+        ${
+          active
+            ? "bg-gradient-to-tr from-red-200 to-red-100 text-red-800"
+            : "hover:bg-red-50"
+        }
+    `}
         >
-          {text}
-        </Link>
+          {icon}
+
+          <span
+            className={`overflow-hidden transition-all ${
+              expanded ? "w-52 ml-3" : "w-0"
+            }`}
+          >
+            {text}
+          </span>
+          {alert && (
+            <div
+              className={`absolute right-2 w-2 h-2 rounded bg-red-400 ${
+                expanded ? "" : "top-2"
+              }`}
+            />
+          )}
+        </li></Link>
       )}
-      {alert && (
-        <div
-          className={`absolute right-2 w-2 h-2 rounded bg-red-400 ${
-            expanded ? "" : "top-2"
-          }`}
-        />
-      )}
-    </li>
+    </>
   );
 }
