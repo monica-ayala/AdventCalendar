@@ -8,7 +8,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 // } from "../routes/privates";
 import { PublicRoutes } from "../routes/public";
 // import { useRecoilValue } from "recoil";
-import { useCallback, useMemo } from "react";
+import { useMemo } from "react";
 import { IRoute } from "../types";
 
 export function AppRouter() {

@@ -1,5 +1,3 @@
-import Foot from "../components/includes/Foot";
-import NavBar from "../components/includes/NavBar";
 import Sidebar from "../components/Sidebar";
 
 export interface IWrapperProps {

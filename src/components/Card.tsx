@@ -1,5 +1,4 @@
 import { IDay } from "../types/index.ts";
-import ModalCard from "./ModalCard.tsx";
 import { useState } from 'react';
 
 export interface ICardProps {
@@ -42,7 +41,7 @@ const Card = ({ day, color }: ICardProps) => {
             </div>
           </div>
         ) : day.status === "Claimed" ? (
-          <div onClick={() => setOpenModal(true)} className="absolute inset-0 h-full w-full rounded-xl bg-green-800/80 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+          <div onClick={() => setOpenModal(!openModal)} className="absolute inset-0 h-full w-full rounded-xl bg-green-800/80 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
             <div className="flex min-h-full flex-col items-center justify-center">
               <h1 className="text-2xl font-bold">Abierto</h1>
               <p className="text-lg">
@@ -52,7 +51,7 @@ const Card = ({ day, color }: ICardProps) => {
             </div>
           </div>
         ): day.status === "Open" ? (
-            <div onClick={() => setOpenModal(true)} className="absolute inset-0 h-full w-full rounded-xl bg-red-950/70 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+            <div onClick={() => setOpenModal(!openModal)} className="absolute inset-0 h-full w-full rounded-xl bg-red-950/70 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
               <div className="flex min-h-full flex-col items-center justify-center">
                 <p className="text-lg">
                  Pista: {day.letterDescription}

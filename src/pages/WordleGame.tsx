@@ -1,5 +1,4 @@
 import Wordle from '../components/Wordle'
-import Cell from '../components/Cell'
 
 type Props = {}
 

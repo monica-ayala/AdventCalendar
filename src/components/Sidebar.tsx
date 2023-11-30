@@ -1,22 +1,12 @@
 // Import statements for Lucide-React icons
-import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react";
+import { ChevronLast, ChevronFirst } from "lucide-react";
 import { useContext, createContext, useState, ReactNode } from "react";
-import { FaAirbnb } from "react-icons/fa";
 import { BsFillTreeFill } from "react-icons/bs";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { ImGithub } from "react-icons/im";
 import { Link } from 'react-router-dom';
 
-
-// Sidebar context with a default value
 const SidebarContext = createContext({ expanded: false } as { expanded: boolean });
-
-// Optional Sidebar Props
-export interface ISideBarProps {
-  children?: ReactNode;
-}
-
-// Sidebar item props
 export interface ISideBarItemProps {
   icon: ReactNode;
   text: string;
@@ -25,7 +15,7 @@ export interface ISideBarItemProps {
  expandSideBar?: () => void;
 }
 
-export default function Sidebar({ children }: ISideBarProps) {
+export default function Sidebar() {
   const [expanded, setExpanded] = useState(true);
 
   return (

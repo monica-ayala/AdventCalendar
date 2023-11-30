@@ -1,5 +1,5 @@
 // Wordle.tsx
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import Row from '../components/Row';
 import Grid from '../components/Grid';
 
@@ -10,7 +10,6 @@ interface WordleProps {
 const Wordle: React.FC<WordleProps> = ({ targetWord }: WordleProps) => {
   const [inputWord, setInputWord] = useState<string>('');
   const [attempts, setAttempts] = useState<string[][]>([]);
-  const [statusFeedback, setStatusFeedback] = useState<('correct' | 'incorrect' | 'misplaced')[]>([]);
   const [remainingAttempts, setRemainingAttempts] = useState<number>(6);
   const [previousStatus, setPreviousStatus] = useState<('correct' | 'incorrect' | 'misplaced')[][]>([]);
 
@@ -29,7 +28,6 @@ const Wordle: React.FC<WordleProps> = ({ targetWord }: WordleProps) => {
     }
 
     if (inputWord.toLowerCase() === targetWord.toLowerCase()) {
-      setStatusFeedback(Array(targetWord.length).fill('correct'));
       setPreviousStatus([...previousStatus, Array(targetWord.length).fill('correct')]);
       setAttempts([...attempts, inputWord.split('')]);
       setRemainingAttempts(remainingAttempts - 1);
@@ -45,7 +43,6 @@ const Wordle: React.FC<WordleProps> = ({ targetWord }: WordleProps) => {
         }
       });
 
-      setStatusFeedback(newStatusFeedback);
       setAttempts([...attempts, inputWord.split('')]);
       setPreviousStatus([...previousStatus, newStatusFeedback]);
       setRemainingAttempts(remainingAttempts - 1);
