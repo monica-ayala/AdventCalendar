@@ -13,6 +13,9 @@ module.exports = {
       colors: {
         'primary-red': '#D10B04',
       },
+      fontFamily: {
+        cursive: ['Dancing Script', 'cursive'],
+      },
     }
   },
   plugins: [require('postcss-nesting'),require("flowbite/plugin"), require('tailwindcss'),

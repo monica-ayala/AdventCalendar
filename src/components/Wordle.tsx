@@ -52,7 +52,7 @@ const Wordle: React.FC<WordleProps> = ({ targetWord }: WordleProps) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-screen p-10">
       <Grid attempts={attempts} statusFeedback={previousStatus} />
       {[...Array(remainingAttempts)].map((_, index) => (
         <Row key={`empty-${index}`} letters={Array(targetWord.length).fill(' ')} statuses={Array(targetWord.length).fill('incorrect')} />
@@ -64,8 +64,8 @@ const Wordle: React.FC<WordleProps> = ({ targetWord }: WordleProps) => {
         onChange={handleInputChange}
         className="mt-4 p-2 border border-gray-300 rounded"
       />
-      <button onClick={handleGuess} className="mt-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-        Guess
+      <button onClick={handleGuess} className="mt-2 p-2 bg-red-600 text-white rounded hover:bg-red-700">
+        Adivina
       </button>
     </div>
   );

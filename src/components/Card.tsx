@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { IDay } from "../types/index.ts";
 import { useState } from 'react';
 
@@ -6,13 +7,12 @@ export interface ICardProps {
   day: IDay;
 }
 
-const Card = ({ day, color }: ICardProps) => {
+const Card = ({ day, color}: ICardProps) => {
   const redImage = new Image();
   redImage.src = `./assets/imgs/red-card.png`;
 
   const whiteImage = new Image();
   whiteImage.src = `./assets/imgs/white-card.png`;
-  const [openModal, setOpenModal] = useState<Boolean>(false);
 
   return (
     <div className="group h-80 w-58 [perspective:1000px] mb-4">
@@ -37,25 +37,25 @@ const Card = ({ day, color }: ICardProps) => {
         {day.status === "Locked" ? (
           <div className="absolute inset-0 h-full w-full rounded-xl bg-black/80 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
             <div className="flex min-h-full flex-col items-center justify-center">
-              <h1 className="text-2xl font-bold">No disponible</h1>
-            </div>
-          </div>
-        ) : day.status === "Claimed" ? (
-          <div onClick={() => setOpenModal(!openModal)} className="absolute inset-0 h-full w-full rounded-xl bg-green-800/80 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
-            <div className="flex min-h-full flex-col items-center justify-center">
-              <h1 className="text-2xl font-bold">Abierto</h1>
-              <p className="text-lg">
-                Ya has descubierto que regalo es. Psst . . . era{" "}
-                {day.letterDescription}
+            <p className="font-bold">
+                Aún no puedes abrir este regalo, se un michi paciente.
               </p>
             </div>
           </div>
+        ) : day.status === "Claimed" ? (
+          <div className="absolute inset-0 h-full w-full rounded-xl bg-green-800/80 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+            <div className="flex min-h-full flex-col items-center justify-center">
+              <p className="font-bold">
+                Ya has obtenido reste regalo, espero te haya gustado.
+              </p>
+              <Link className="mt-2 p-2 bg-green-600 text-white rounded hover:bg-green-700" to={`/Wordle/${day.id}`}> Abrir </Link>
+            </div>
+          </div>
         ): day.status === "Open" ? (
-            <div onClick={() => setOpenModal(!openModal)} className="absolute inset-0 h-full w-full rounded-xl bg-red-950/70 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+            <div className="absolute inset-0 h-full w-full rounded-xl bg-red-950/70 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
               <div className="flex min-h-full flex-col items-center justify-center">
-                <p className="text-lg">
-                 Pista: {day.letterDescription}
-                </p>
+                <span className="font-bold"> {day.name}</span>
+                <Link className="mt-2 p-2 bg-red-600 text-white rounded hover:bg-red-700" to={`/Wordle/${day.id}`}> Abrir </Link>
               </div>
             </div>
           ) : (

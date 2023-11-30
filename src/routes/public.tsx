@@ -18,11 +18,11 @@ export const PublicRoutes: IRoute[] = [
     Component: () => <Homepage />,
   },
   {
-    path: "/Instructions",
+    path: "/Instrucciones",
     Component: () => <Instructions />,
   },
   {
-    path: "/Wordle",
+    path: "/Wordle/:id",
     Component: () => <WordleGame />,
   },
 ];
