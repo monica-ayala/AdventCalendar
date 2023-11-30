@@ -7,6 +7,9 @@ const Homepage = lazy(async () => import("../pages/Homepage"));
 
 const Instructions = lazy(async () => import("../pages/Instructions"));
 
+const WordleGame = lazy(async () => import("../pages/WordleGame"));
+
+
 export const PublicRoutes: IRoute[] = [
   {
     path: "/",
@@ -19,5 +22,9 @@ export const PublicRoutes: IRoute[] = [
   {
     path: "/Instructions",
     Component: () => <Instructions />,
+  },
+  {
+    path: "/Wordle",
+    Component: () => <WordleGame />,
   },
 ];
