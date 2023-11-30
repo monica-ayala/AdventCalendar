@@ -19,7 +19,7 @@ export interface ISideBarItemProps {
 }
 
 export default function Sidebar() {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <nav className="h-screen w-fit flex flex-col bg-white border-r shadow-sm">
@@ -91,7 +91,6 @@ export function SidebarItem({
   active,
   alert,
   isGithub,
-  expandSideBar,
 }: ISideBarItemProps) {
   const { expanded } = useContext(SidebarContext);
 
@@ -101,7 +100,6 @@ export function SidebarItem({
 
   return (
     <li
-      onClick={expandSideBar}
       className={`
         relative flex items-center py-2 px-3 my-1
         font-medium rounded-md cursor-pointer

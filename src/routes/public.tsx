@@ -7,6 +7,8 @@ const Instructions = lazy(async () => import("../pages/Instructions"));
 
 const WordleGame = lazy(async () => import("../pages/WordleGame"));
 
+const OngoingWordle = lazy(async () => import("../pages/OngoingWordle"));
+
 
 export const PublicRoutes: IRoute[] = [
   {
@@ -24,5 +26,9 @@ export const PublicRoutes: IRoute[] = [
   {
     path: "/Wordle/:id",
     Component: () => <WordleGame />,
+  },
+  {
+    path: "/OngoingWordle/:id",
+    Component: () => <OngoingWordle />,
   },
 ];

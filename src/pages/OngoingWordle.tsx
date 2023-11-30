@@ -10,7 +10,7 @@ import { IAttempt } from '../types/index';
 
 type Props = {}
 
-export default function WordleGame({}: Props) {
+export default function OngoingWordle({}: Props) {
   const { id: day_id } = useParams();
   const supabase: any = React.useContext(SupabaseContext);
   const [word, setWord] = useState<string>('')
@@ -21,7 +21,7 @@ export default function WordleGame({}: Props) {
     const fetchWord = async () => {
       let { data: word, error } = await supabase
         .from('gifts')
-        .select('password, id, letterDescription, status, name, guess1, guess2, guess3, guess4, guess5, guess6, status1, status2, status3, status4, status5, status6')
+        .select('password, id, letterDescription, status, name')
         .eq('id', day_id, 'status', 'Open')
         .single()
       if (error) {
@@ -36,15 +36,6 @@ export default function WordleGame({}: Props) {
           status: word.status,
           name: word.name,
          }
-        const attemptsParsed = [
-          {letters: word.guess1.split(''), statuses: word.status1},
-          {letters: word.guess2.split(''), statuses: word.status2},
-          {letters: word.guess3.split(''), statuses: word.status3},
-          {letters: word.guess4.split(''), statuses: word.status4},
-          {letters: word.guess5.split(''), statuses: word.status5},
-          {letters: word.guess6.split(''), statuses: word.status6},
-        ]
-        setAttempts(attemptsParsed)
         setWord(word.password)
         setDay(fetchedDay)
     } 
@@ -57,7 +48,7 @@ export default function WordleGame({}: Props) {
     <Wrapper>
       <div className='flex grid-flow-col'>
       { day && <Letter day={day} />}
-      <Wordle targetWord={word} oldAttempts={attempts?attempts:[]} isWon={true}/>
+      {day && (<Wordle targetWord={word} oldAttempts={attempts?attempts:[]} day={day}/>)}
       </div>
     
     </Wrapper>

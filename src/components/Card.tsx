@@ -55,7 +55,7 @@ const Card = ({ day, color}: ICardProps) => {
             <div className="absolute inset-0 h-full w-full rounded-xl bg-red-950/70 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
               <div className="flex min-h-full flex-col items-center justify-center">
                 <span className="font-bold"> {day.name}</span>
-                <Link className="mt-2 p-2 bg-red-600 text-white rounded hover:bg-red-700" to={`/Wordle/${day.id}`}> Abrir </Link>
+                <Link className="mt-2 p-2 bg-red-600 text-white rounded hover:bg-red-700" to={`/OngoingWordle/${day.id}`}> Abrir </Link>
               </div>
             </div>
           ) : (

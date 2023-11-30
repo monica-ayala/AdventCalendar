@@ -11,4 +11,9 @@ export interface IDay {
   status: IStatus;
 }
 
+export interface IAttempt {
+  letters: string[];
+  statuses: ("correct" | "incorrect" | "misplaced")[];
+}
+
 export type IStatus = 'Open' | 'Locked' | 'Eliminated' | 'Claimed';
