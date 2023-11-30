@@ -5,9 +5,7 @@ import { FaAirbnb } from "react-icons/fa";
 import { BsFillTreeFill } from "react-icons/bs";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { ImGithub } from "react-icons/im";
-
-
-
+import { Link } from 'react-router-dom';
 
 
 // Sidebar context with a default value
@@ -102,13 +100,13 @@ export function SidebarItem({ icon, text, active, alert, expandSideBar }: ISideB
     `}
     >
       {icon}
-      <span
-        className={`overflow-hidden transition-all ${
-          expanded ? "w-52 ml-3" : "w-0"
-        }`}
-      >
-        {text}
-      </span>
+  <Link to={`/${text}`}
+    className={`overflow-hidden transition-all ${
+      expanded ? "w-52 ml-3" : "w-0"
+    }`}
+  >
+    {text}
+  </Link>
       {alert && (
         <div
           className={`absolute right-2 w-2 h-2 rounded bg-red-400 ${

@@ -5,6 +5,8 @@ const Catalogue = lazy(async () => import("../pages/Catalogue"));
 
 const Homepage = lazy(async () => import("../pages/Homepage"));
 
+const Instructions = lazy(async () => import("../pages/Instructions"));
+
 export const PublicRoutes: IRoute[] = [
   {
     path: "/",
@@ -13,5 +15,9 @@ export const PublicRoutes: IRoute[] = [
   {
     path: "/Catalogue",
     Component: () => <Catalogue />,
+  },
+  {
+    path: "/Instructions",
+    Component: () => <Instructions />,
   },
 ];
