@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { IDay } from "../types/index.ts";
-import { useState } from 'react';
 
 export interface ICardProps {
   color: "red" | "white";
