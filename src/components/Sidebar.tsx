@@ -22,7 +22,7 @@ export default function Sidebar() {
     <nav className="h-screen w-fit flex flex-col bg-white border-r shadow-sm">
       <div className="p-4 pb-2 flex justify-between items-center">
           <img
-            src="AdventCalendar/src/assets/imgs/advent-logo.png"
+            src="https://i.ibb.co/zPMhrrh/advent-logo.png"
             className={`overflow-hidden transition-all ${
               expanded ? "w-44" : "w-0"
             }`}
@@ -44,7 +44,6 @@ export default function Sidebar() {
           <SidebarItem icon={<BsFillInfoCircleFill />} text="Instrucciones" expandSideBar={() => setExpanded((curr) => !curr)} />
           <SidebarItem icon={<ImGithub />} text="Source code" expandSideBar={() => setExpanded((curr) => !curr)}/>
           
-          {/* Add more sidebar items as needed */}
         </ul>
       </SidebarContext.Provider>
 
