@@ -17,6 +17,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: github-pages  # ✅ <== this is valid
 
     steps:
       - name: Checkout repository
@@ -53,5 +54,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
-        environment:
-          name: github-pages
+
