@@ -34,8 +34,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Type check
+        run: tsc --noEmit
+
       - name: Build
-        run: npm run build --no-check
+        run: npm run build
+
+      - name: Debug: Check dist contents
+        run: |
+          echo "Root directory:"
+          ls -la
+          echo "dist directory:"
+          ls -la dist || echo "⚠️ dist/ folder not found!"
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
@@ -48,5 +58,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
-
+        uses: actions/deploy-pages@v3.0.4  # pinned to a known good version
