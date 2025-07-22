@@ -1,4 +1,4 @@
-name: Deploy static content to Pages
+name: Deploy static content to GitHub Pages
 
 on:
   push:
@@ -16,20 +16,20 @@ concurrency:
 
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'npm'
+          cache: npm
 
       - name: Install dependencies
         run: npm install
@@ -37,28 +37,22 @@ jobs:
       - name: Type check
         run: tsc --noEmit
 
-      - name: Build
+      - name: Build site
         run: npm run build
 
-        
-
-      - name: Debug Check dist contents
+      - name: Debug build folder
         run: |
-          echo "Root directory:"
-          ls -la
-          echo "dist directory:"
-          ls -la dist || echo "⚠️ dist/ folder not found!"
+          echo "Check dist folder:"
+          if [ -d dist ]; then ls -la dist; else echo "dist/ does not exist!"; fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
       - name: Upload artifact
-        id: upload
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: dist
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
-
