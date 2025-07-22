@@ -60,4 +60,5 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3.0.4  # pinned to a known good version
+        uses: actions/deploy-pages@v3
+
